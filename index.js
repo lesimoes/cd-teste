@@ -1,11 +1,20 @@
 import express, { json } from 'express';
 import prisma from './database.js';
+import { random } from './math.js';
 
 const app = express();
 app.use(json());
 
 app.get('/status', async (req, res) => {
   res.send('narutssssin');
+
+});
+
+app.get('/random', async (req, res) => {
+ 
+  const rand = random(1, 100)
+  res.send(rand);
+  
 });
 
 app.get('/users', async (req, res) => {
